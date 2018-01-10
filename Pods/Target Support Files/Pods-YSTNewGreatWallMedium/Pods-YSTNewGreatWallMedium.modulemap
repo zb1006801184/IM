@@ -1,0 +1,6 @@
+framework module Pods_YSTNewGreatWallMedium {
+  umbrella header "Pods-YSTNewGreatWallMedium-umbrella.h"
+
+  export *
+  module * { export * }
+}
