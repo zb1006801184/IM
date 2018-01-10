@@ -38,7 +38,7 @@
     [[[IQKeyboardManager sharedManager] disabledToolbarClasses] addObject:[XYDJViewController class]];
     [[[IQKeyboardManager sharedManager] disabledDistanceHandlingClasses] addObject:[RootViewController class]];
     [[[IQKeyboardManager sharedManager] disabledToolbarClasses] addObject:[RootViewController class]];
-    
+    //
     return YES;
 }
 
