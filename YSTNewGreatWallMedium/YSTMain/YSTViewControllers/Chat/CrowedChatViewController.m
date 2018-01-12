@@ -45,6 +45,7 @@
      _chatView = [[ChatListTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, self.view.size.height) style:UITableViewStylePlain];
     [self.view addSubview:_chatView];
     self.chatView.hidden = YES;
+    [self getChatListNet];
 }
 - (void)initTopView {
     TitleView *titleView = [[TitleView alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
@@ -86,6 +87,18 @@
         
     }];
 }
+//获取私聊列表
+- (void)getChatListNet {
+    [IMNetModel getRecentContactsWithsenderId:[UserModel getModel].userId success:^(id  _Nonnull responseObject) {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"code"] integerValue] != 1) {
+            //            [self.view makeToast:responseObject[@"msg"] duration:2 position:CSToastPositionCenter];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
 - (void)dissolveGroupChatNet {
     UserModel *userModel = [UserModel getModel];
     [IMNetModel dissolveGroupChatWith:userModel.userId groupId:[NSString stringWithFormat:@"%ld",(long)_model.id] success:^(id  _Nonnull responseObject) {

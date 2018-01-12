@@ -12,10 +12,10 @@
 //NSString *const YST_API_URL = @"113.209.232.107";
 //NSString *const YST_API_URLNAME = @"http://113.209.232.107:8080/";
 //NSString *const YST_API_URLNAMEIMAGE = @"http://113.209.232.107:12315/";
-NSString *const YST_API_URL = @"192.168.10.246";
+NSString *const YST_API_URL = @"192.168.10.162";
 NSString *const YST_API_PORT = @"53535";
-NSString *const YST_API_URLNAME = @"http://192.168.10.246:80/";
-NSString *const YST_API_URLNAMEIMAGE = @"http://192.168.10.246:12315/";
+NSString *const YST_API_URLNAME = @"http://192.168.10.162:80/";
+NSString *const YST_API_URLNAMEIMAGE = @"http://192.168.10.162:12315/";
 
 
 NSString *const YST_AIP_Name = @"Name";
@@ -44,5 +44,9 @@ NSString *const YST_API_FILEUPLOAD = @"API/fileUpload";
 NSString *const YST_API_INVITINGUSERS = @"API/invitingUsers";
 NSString *const YST_API_PROHIBITUSERSPEAKER = @"API/prohibitUserSpeak";
 NSString *const YST_API_REMOVEPROHIBITUSERSPEAK = @"API/removeProhibitUserSpeak";
+NSString *const YST_API_GETRECENTCONTACTS = @"API/getRecentContacts";
+
 @implementation YSTApiName
 @end
+
+

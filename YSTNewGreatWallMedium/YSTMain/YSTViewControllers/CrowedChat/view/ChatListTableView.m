@@ -42,6 +42,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
 }
+- (void)setDataList:(NSArray *)dataList {
+    _dataList = dataList;
+    [self reloadData];
+}
 
 @end
 

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatListTableView : UITableView
+//数据源
+@property (nonatomic, strong) NSArray *dataList;
 
 @end

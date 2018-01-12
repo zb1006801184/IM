@@ -52,7 +52,7 @@
     } failure:^(NSError * _Nonnull error) {
         failure(error);
     }];
-
+    
 }
 
 + (void)exitGroupChatWithUserId:(nonnull NSString *)userId groupId:(nonnull NSString *)groupId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure {
@@ -102,7 +102,7 @@
         success(responseObject);
     } failure:^(NSError * _Nonnull error) {
         failure(error);
-
+        
     }];
 }
 + (void)queryUserListWithUserId:(nonnull NSString *)userId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure {
@@ -189,14 +189,14 @@
     }];
 }
 + (void)filedUploadWithData:(nonnull NSData *)data type:(nonnull NSString *)type success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure{
-//    [[YSTNetWorkHelper networkHelper]callAPI:YST_API_FILEUPLOAD option:IPHNetWorkHelperOptionUPLOAD parameters:nil data:data dataKey:@"urlFile" progress:^(NSProgress * _Nullable uploadProgress) {
-//
-//    } success:^(id  _Nullable responseObject) {
-//        success(responseObject);
-//
-//    } failure:^(NSError * _Nonnull error) {
-//
-//    }];
+    //    [[YSTNetWorkHelper networkHelper]callAPI:YST_API_FILEUPLOAD option:IPHNetWorkHelperOptionUPLOAD parameters:nil data:data dataKey:@"urlFile" progress:^(NSProgress * _Nullable uploadProgress) {
+    //
+    //    } success:^(id  _Nullable responseObject) {
+    //        success(responseObject);
+    //
+    //    } failure:^(NSError * _Nonnull error) {
+    //
+    //    }];
     NSString *url = [YST_API_URLNAMEIMAGE stringByAppendingString:YST_API_FILEUPLOAD];
     [[YSTNetWorkHelper networkHelper]Upload:url params:nil type:type thumb:data key:@"urlFile" progress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -221,7 +221,7 @@
     } failure:^(NSError * _Nonnull error) {
         failure(error);
     }];
-
+    
 }
 + (void)prohibitUserSpeakWithuserIduserId:(nonnull NSString *)userId groupId:(nonnull NSString *)groupId manageId:(nonnull NSString *)manageId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure {
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
@@ -237,7 +237,7 @@
     } failure:^(NSError * _Nonnull error) {
         failure(error);
     }];
-
+    
 }
 
 + (void)removeProhibitUserSpeakWithuserIduserId:(nonnull NSString *)userId groupId:(nonnull NSString *)groupId manageId:(nonnull NSString *)manageId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure {
@@ -255,5 +255,20 @@
         failure(error);
     }];
 }
-
++ (void)getRecentContactsWithsenderId:(nonnull NSString *)senderId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure {
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    [paramDic setObject:senderId forKey:@"senderId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
+    [[YSTNetWorkHelper networkHelper]callAPI:YST_API_GETRECENTCONTACTS option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
+        BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
+        if ([mainModel.code integerValue] == 0)  {
+        }
+        success(responseObject);
+    } failure:^(NSError * _Nonnull error) {
+        failure(error);
+    }];
+    
+    
+}
 @end
+

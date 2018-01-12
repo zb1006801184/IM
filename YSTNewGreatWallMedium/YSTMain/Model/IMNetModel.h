@@ -12,7 +12,7 @@
 
 /**
  获取群组列表
-
+ 
  @param userId 用户id
  @param success 成功回调
  @param failure 失败回调、、
@@ -21,7 +21,7 @@
 
 /**
  解散群组
-
+ 
  @param userId 用户id（群主自己）
  @param groupId 群id
  @param success 成功
@@ -32,7 +32,7 @@
 
 /**
  退出群组
-
+ 
  @param userId 用户id (群组自己)
  @param groupId 群组id
  @param success 成功
@@ -42,7 +42,7 @@
 
 /**
  加入群组(需要申请)
-
+ 
  @param userId 用户id (群组自己)
  @param groupId 群组id
  @param success 成功
@@ -54,7 +54,7 @@
 
 /**
  创建群组
-
+ 
  @param userId 群主id
  @param groupNumberByMax 最大人数
  @param groupType 群类型
@@ -68,7 +68,7 @@
 
 /**
  获取全部邀请人
-
+ 
  @param userId 用户id
  @param success 成功
  @param failure 失败
@@ -77,7 +77,7 @@
 
 /**
  群组信息
-
+ 
  @param userId 用户id
  @param groupId 群组id
  @param success 成功
@@ -88,7 +88,7 @@
 
 /**
  查询待审批人员列表
-
+ 
  @param userId 用户id
  @param groupId 群组id
  @param success 成功
@@ -98,7 +98,7 @@
 
 /**
  踢出群聊
-
+ 
  @param groupId 群id
  @param userId 用户id
  @param manageId 管理员id
@@ -119,7 +119,7 @@
 
 /**
  同意加入群聊
-
+ 
  @param groupId 群id
  @param userId 用户id
  @param manageId 管理员id
@@ -130,7 +130,7 @@
 
 /**
  上传图片
-
+ 
  @param data 数据
  @param success 成功
  @param failure 失败
@@ -140,7 +140,7 @@
 
 /**
  加入群聊（无需同意）
-
+ 
  @param userId 用户id
  @param groupId 群id
  @param success 成功
@@ -150,7 +150,7 @@
 
 /**
  禁言
-
+ 
  @param userId 用户id
  @param groupId 群组id
  @param manageId 管理员id
@@ -168,5 +168,14 @@
  @param failure 失败
  */
 + (void)removeProhibitUserSpeakWithuserIduserId:(nonnull NSString *)userId groupId:(nonnull NSString *)groupId manageId:(nonnull NSString *)manageId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure;
+/**
+ 私聊列表
+ 
+ @param senderId 发送者id
+ @param success 成功
+ @param failure 失败
+ */
++ (void)getRecentContactsWithsenderId:(nonnull NSString *)senderId success:(void (^_Nullable)(id _Nonnull responseObject))success failure:(void (^_Nullable)(NSError * _Nonnull error))failure;
 
 @end
+
