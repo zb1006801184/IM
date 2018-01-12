@@ -24,6 +24,10 @@
     CGFloat itemW = (self.width-30);
     _imgView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width-itemW)/2, (self.width-itemW)/2, itemW, itemW)];
     [self.contentView addSubview:_imgView];
+    _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.height - 12, self.width, 12)];
+    _titleLabel.font = [UIFont systemFontOfSize:12];
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:_titleLabel];
 }
 
 @end

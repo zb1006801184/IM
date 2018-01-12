@@ -15,6 +15,7 @@
 @interface GJMoreView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, copy) NSArray *imgArray;
+@property (nonatomic, strong) NSArray *titleArray;
 
 @end
 
@@ -33,7 +34,7 @@
 - (void)initializa
 {
     _imgArray = @[@"icon_news_more_photo", @"icon_news_more_shoot",];
-    
+    _titleArray = @[@"图片",@"相机"];
     
     
     GJCVFlowLayout *flowLayout = [[GJCVFlowLayout alloc] init];
@@ -58,6 +59,7 @@
 {
     GJMoreCell *moreCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GJMoreCell" forIndexPath:indexPath];
     moreCell.imgView.image = [UIImage imageNamed:_imgArray[indexPath.row]];
+    moreCell.titleLabel.text = _titleArray[indexPath.row];
     return moreCell;
 }
 

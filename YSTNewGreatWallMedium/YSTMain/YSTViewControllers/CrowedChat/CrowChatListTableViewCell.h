@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pointImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
+//标签数据源
+@property (nonatomic, strong) NSArray *dataList;
 
 @end
