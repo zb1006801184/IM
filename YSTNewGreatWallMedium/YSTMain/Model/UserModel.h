@@ -29,6 +29,10 @@
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, assign) NSInteger isApply; //是成员还是申请 标识
 @property (nonatomic, assign) BOOL isProhibit;//是否被禁言
+@property (nonatomic, assign) NSInteger senderId;//发送者ID
+@property (nonatomic, strong) NSString *occureTime; //当前时间
+//@property (nonatomic, strong) NSString *content;//最后一条聊天信息
+@property (nonatomic, strong) NSString *portrait;//头像
 /**
  用户基本信息存在本地
 

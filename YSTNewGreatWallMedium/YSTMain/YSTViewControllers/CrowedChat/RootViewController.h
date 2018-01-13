@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "GroupModel.h"
+#import "UserModel.h"
+enum {
+    ChatWithChat = 1, //单聊
+    ChatWitGroupChat = 2 , //群聊
+};
+typedef NSInteger ChatKind;
 @interface RootViewController : UIViewController
 @property (nonatomic, strong)GroupModel *model;
+@property (nonatomic, assign) ChatKind ChatType;//聊天类型
+@property (nonatomic, strong) UserModel *userModel;
 @end

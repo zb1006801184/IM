@@ -94,6 +94,13 @@
         if ([responseObject[@"code"] integerValue] != 1) {
             //            [self.view makeToast:responseObject[@"msg"] duration:2 position:CSToastPositionCenter];
         }
+        NSArray *list = responseObject[@"content"];
+        NSMutableArray *datas = [NSMutableArray array];
+        for (NSDictionary *dic in list) {
+            UserModel *model = [UserModel mj_objectWithKeyValues:dic];
+            [datas addObject:model];
+        }
+        _chatView.dataList = datas;
     } failure:^(NSError * _Nonnull error) {
         
     }];

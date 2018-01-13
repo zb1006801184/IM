@@ -68,6 +68,7 @@
         NSMutableArray *two = [NSMutableArray array];
         NSArray *list = responseObject[@"content"][1][@"groups"];
         //被禁言id
+        NSString *prohibiStr = responseObject[@"content"][1][@"prohibitUserSpeak"];
         NSArray *userIds = [responseObject[@"content"][1][@"prohibitUserSpeak"] componentsSeparatedByString:@","];
         //遍历解析数据
         for (NSDictionary *dic in list) {

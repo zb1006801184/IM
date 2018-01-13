@@ -13,6 +13,7 @@
 + (void)findAllGroupChatWith:(NSString *)userId  success:(void (^)( id  _Nonnull responseObject))success failure:(void (^)(NSError * _Nonnull error))failure{
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_FINDALLGROUPCHAT option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0) {
@@ -43,6 +44,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_DISSOLVEGROUPCHAT option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -59,6 +61,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_EXITGROUPHAT option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -74,6 +77,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_JIONGROUCHAT option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -95,6 +99,7 @@
     [paramDic setObject:topic forKey:@"topic"];
     [paramDic setObject:imageUrl forKey:@"imageUrl"];
     [paramDic setObject:groupUserType forKey:@"groupUserType"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_CREATEGROUPCHAT option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -122,6 +127,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_FINDROUPDETAIL option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -137,6 +143,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_QUREYAPPROVEDLIST option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -151,6 +158,7 @@
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
     [paramDic setObject:manageId forKey:@"manageId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_KICKOUTGROUP option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -165,6 +173,7 @@
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
     [paramDic setObject:manageId forKey:@"manageId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_REFUSEUSERJION option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -179,6 +188,7 @@
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
     [paramDic setObject:manageId forKey:@"manageId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_AGREETOJION option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -212,6 +222,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_INVITINGUSERS option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -228,6 +239,7 @@
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
     [paramDic setObject:manageId forKey:@"manageId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_PROHIBITUSERSPEAKER option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {
@@ -245,6 +257,7 @@
     [paramDic setObject:userId forKey:@"userId"];
     [paramDic setObject:groupId forKey:@"groupId"];
     [paramDic setObject:manageId forKey:@"manageId"];
+    [paramDic setObject:@"app" forKey:@"requestSourceSystem"];
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_REMOVEPROHIBITUSERSPEAK option:IPHNetWorkHelperOptionPOST parameters:paramDic data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         BaseModel *mainModel = [BaseModel mj_objectWithKeyValues:responseObject];
         if ([mainModel.code integerValue] == 0)  {

@@ -66,6 +66,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="contentLabel" destination="5bF-cd-w5T" id="wtb-5T-1lr"/>
+                <outlet property="headImage" destination="0mo-qS-xxU" id="9IV-J2-oLV"/>
+                <outlet property="nickNameLabel" destination="kOZ-Ap-Pw9" id="sM8-1R-yQY"/>
+                <outlet property="timeLabel" destination="fQQ-wR-BhS" id="2bV-Oi-tdH"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
