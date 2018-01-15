@@ -40,6 +40,8 @@
         return;
     }
     [params setObject:_passWordTextField.text forKey:@"user_id"];
+    [params setObject:@"app" forKey:@"requestSourceSystem"];
+
     [[YSTNetWorkHelper networkHelper]callAPI:YST_API_USERCHAT option:IPHNetWorkHelperOptionPOST parameters:params data:nil dataKey:nil progress:nil success:^(id  _Nullable responseObject) {
         UserModel *model = [UserModel mj_objectWithKeyValues:responseObject];
         if ([model.code integerValue] == 0) {

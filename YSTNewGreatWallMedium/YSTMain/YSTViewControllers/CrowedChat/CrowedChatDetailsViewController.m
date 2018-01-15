@@ -36,8 +36,21 @@
 }
 
 - (void)initShowMessageView {
-    
-    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:nil message:@"你确定操作？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    NSString *showStr;
+    switch (_model.group) {
+        case 1:
+            showStr = @"是否解散该群?";
+            break;
+        case 2:
+            showStr = @"是否退出该聊天室?";
+            break;
+        case 3:
+            showStr = @"是否加入该群？";
+            break;
+        default:
+            break;
+    }
+    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:nil message:showStr delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
     [alerView show];
 }
 #pragma mark -

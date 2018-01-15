@@ -100,7 +100,7 @@
     if (userModel.userId.length < 1) {
         return;
     }
-    NSDictionary *test = @{@"accepteId":userModel.userId,@"senderId":userModel.userId,@"content":@"first",@"event":@"0"};
+    NSDictionary *test = @{@"accepteId":userModel.userId,@"senderId":userModel.userId,@"content":@"first",@"event":@"0",@"requestSourceSystem":@"app"};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:test options:NSJSONWritingPrettyPrinted error:nil];
     //        NSData  *data = [test dataUsingEncoding:NSUTF8StringEncoding];
     NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];

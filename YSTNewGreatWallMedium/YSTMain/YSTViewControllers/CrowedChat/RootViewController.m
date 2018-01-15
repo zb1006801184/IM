@@ -62,14 +62,30 @@
                                                           error:&err];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"2" forKey:@"types"];
-    if ([dic[@"event"] integerValue] != 3) {
+    if ([dic[@"event"] integerValue] == 2||[dic[@"event"] integerValue] == -1) {
         //不是接收的消息
         return;
     }
-    if ([dic[@"groupId"] integerValue ] != _model.id) {
-        //不是本群的消息
-        return;
+    if (_ChatType == ChatWithChat) {
+        //有群id的  群聊
+        NSString *groupChat = dic[@"groupId"];
+        if (groupChat.length > 0) {
+            return;
+        }
+        //单聊
+        if ([dic[@"senderId"] integerValue] != [_userModel.accepteId integerValue]) {
+            //不属于自己的信息
+            return;
+        }
+    }else {
+        //群聊
+        if ([dic[@"groupId"] integerValue ] != _model.id) {
+            //不是本群的消息
+            return;
+        }
+        
     }
+  
     //文本消息
     if ([dic[@"type"] integerValue] == 0 || [dic[@"type"] integerValue] == -1) {
         [params setObject:dic[@"content"] forKey:@"strContent"];
@@ -348,7 +364,24 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:message forKey:@"strContent"];
     [params setObject:@"1" forKey:@"types"];
-    NSDictionary *test = @{@"accepteId":[NSString stringWithFormat:@"%ld",_model.id],@"senderId":[UserModel getModel].userId,@"content":message,@"event":@"3",@"type":type,@"isGroupChat":@(true),@"occureTime":@"1515034889568",@"requestSourceSystem":@"xcc",@"version":@"1515034889568",@"id":@"1515034889568",@"nickName":[UserModel getModel].nickName,@"portrait":@""};
+    BOOL isGroupChat = true;
+    //接受者ID
+    NSString *accepteId  = [NSString stringWithFormat:@"%ld",_model.id];
+    //接受者ID
+    NSString *event = @"3";
+    //是否是群聊
+    switch (_ChatType) {
+        case ChatWithChat:
+            isGroupChat = false;
+            accepteId = _userModel.accepteId;
+            event = @"1";
+            break;
+        default:
+            break;
+    }
+    
+    //event
+    NSDictionary *test = @{@"accepteId":accepteId,@"senderId":[UserModel getModel].userId,@"content":message,@"event":event,@"type":type,@"isGroupChat":@(isGroupChat),@"occureTime":@"1515034889568",@"requestSourceSystem":@"app",@"version":@"1515034889568",@"id":@"1515034889568",@"nickName":[UserModel getModel].nickName,@"portrait":@""};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:test options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
     jsonStr = [NSString stringWithFormat:@"%lu   %@",(unsigned long)jsonStr.length,jsonStr];

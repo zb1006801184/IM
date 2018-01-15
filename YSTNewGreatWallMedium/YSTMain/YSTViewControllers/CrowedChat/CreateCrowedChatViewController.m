@@ -65,6 +65,10 @@
         [self.view makeToast:@"请完善群信息！" duration:2 position:CSToastPositionCenter];
         return;
     }
+    if (4 < _groupNameStr.length && _groupNameStr.length < 20) {
+        [self.view makeToast:@"群名称4到20字！" duration:2 position:CSToastPositionCenter];
+        return;
+    }
     if (_imageUrl.length < 1) {
         [self.view makeToast:@"图片正在上传..." duration:2 position:CSToastPositionCenter];
         return;

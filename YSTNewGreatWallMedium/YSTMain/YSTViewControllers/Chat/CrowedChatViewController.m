@@ -35,10 +35,11 @@
     self.myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self getListData];
     }];
+    [self initChatList];
+
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    [self initChatList];
 }
 //私聊列表
 - (void)initChatList {

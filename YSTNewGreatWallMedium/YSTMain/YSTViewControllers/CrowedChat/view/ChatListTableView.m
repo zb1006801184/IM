@@ -54,6 +54,7 @@
     rootVC.ChatType = ChatWithChat;
     UserModel *model = _dataList[indexPath.row];
     rootVC.userModel = model;
+    rootVC.hidesBottomBarWhenPushed = YES;
     [[YSTCommonTools getCurrentVC].navigationController pushViewController:rootVC animated:YES];
 }
 - (void)setDataList:(NSArray *)dataList {

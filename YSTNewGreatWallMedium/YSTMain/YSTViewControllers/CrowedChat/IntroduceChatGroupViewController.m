@@ -37,8 +37,17 @@
         self.showMessageLabel.hidden = YES;
     }else {
         self.showMessageLabel.hidden = NO;
-
     }
+    if (textView.text.length <= 150) {
+        self.textNumbelLabel.text = [NSString stringWithFormat:@"%ld/150",textView.text.length];
+    }
+    if ([textView.text length] > 150) {
+        textView.text = [textView.text substringWithRange:NSMakeRange(0, 150)];
+        [textView.undoManager removeAllActions];
+        [textView becomeFirstResponder];
+        return;
+    }
+    
 }
 
 
