@@ -15,7 +15,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.tagView addTags:@[@"IT", @"服务行业", @"制造行业", @"电商"]];
+    [self.tagView addTags:@[@"人工智能",@"互联网",@"金融",@"医疗",@"大农业",@"建筑",@"建筑",@"食品",
+                        @"纺织",@"家具",@"文娱用品",@"材料",@"基础化工",@"造纸",@"电气",@"能源",@"车船航空",@"贸易",@"商务服务",@"消费服务",@"教育",@"传媒",@"综合"]];
     self.tagView.defaultConfig.tagSelectedTextColor = [UIColor whiteColor];
     self.tagView.defaultConfig.tagSelectedBackgroundColor = [UIColor colorWithHex:0xF44B50];
     self.tagView.defaultConfig.tagTextColor = [UIColor colorWithHex:666666];
@@ -24,6 +25,7 @@
     self.tagView.defaultConfig.tagTextFont = [UIFont systemFontOfSize:14];
     self.tagView.horizontalSpacing = 18;
     self.tagView.verticalSpacing = 10;
+    self.tagView.scrollView.showsVerticalScrollIndicator = false;
     [self.tagView reload];
 }
 - (NSArray<NSString *> *)getAllSelectStrings {

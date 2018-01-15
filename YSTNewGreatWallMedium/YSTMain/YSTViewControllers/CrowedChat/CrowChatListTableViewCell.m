@@ -25,7 +25,7 @@
     self.pointImage.layer.masksToBounds = YES;
     self.pointImage.layer.cornerRadius = 2.5;
 //  self.pointImage.backgroundColor = [UIColor redColor];
-    [self.tagView addTags:@[@"ITITITIT", @"服务行业", @"制造行业", @"电商"]];
+//    [self.tagView addTags:@[@"ITITITIT", @"服务行业", @"制造行业", @"电商"]];
     self.tagView.defaultConfig.tagSelectedTextColor = [UIColor whiteColor];
     self.tagView.defaultConfig.tagSelectedBackgroundColor = [UIColor colorWithHex:0xF44B50];
     self.tagView.defaultConfig.tagTextColor = [UIColor colorWithHex:666666];
@@ -57,6 +57,12 @@
         return self;
     }
     return [super hitTest:point withEvent:event];
+}
+
+- (void)setDataList:(NSArray *)dataList {
+    _dataList = dataList;
+    [self.tagView addTags:dataList];
+    [self.tagView reload];
 }
 
 @end

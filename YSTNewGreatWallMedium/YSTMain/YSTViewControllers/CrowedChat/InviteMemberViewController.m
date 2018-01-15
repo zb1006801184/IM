@@ -152,6 +152,9 @@
     for (UserModel *model in dataList) {
         if (model.isSelect) {
             _selectStr = [NSString stringWithFormat:@"%@,%@",_selectStr,model.nickName];
+            if (_selectStr.length > 1){
+                _selectStr = [_selectStr substringFromIndex:1];
+            }
         }
     }
 }

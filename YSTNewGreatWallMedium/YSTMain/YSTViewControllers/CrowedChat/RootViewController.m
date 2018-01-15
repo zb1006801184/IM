@@ -343,6 +343,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:YES];
     IFView.moreView.hidden = YES;
+    [self toTableViewBottom];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -358,6 +359,7 @@
 }
 - (void)cellContentDidClick:(UUMessageCell *)cell image:(UIImage *)contentImage {
     IFView.moreView.hidden = YES;
+    [self toTableViewBottom];
 }
 //发送消息（给服务器）
 -(void)sendMessageText:(NSString *)message type:(NSString *)type {
@@ -411,5 +413,12 @@
     } failure:^(NSError * _Nonnull error) {
         
     }];
+}
+
+//输入框（整个工具栏到最底部）
+- (void)toTableViewBottom {
+    CGRect newFrame = IFView.frame;
+    newFrame.origin.y = kScreenHeight - IFView.height;
+    IFView.frame = newFrame;
 }
 @end

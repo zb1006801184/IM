@@ -65,7 +65,7 @@
         [self.view makeToast:@"请完善群信息！" duration:2 position:CSToastPositionCenter];
         return;
     }
-    if (4 < _groupNameStr.length && _groupNameStr.length < 20) {
+    if (4 > _groupNameStr.length || _groupNameStr.length > 20) {
         [self.view makeToast:@"群名称4到20字！" duration:2 position:CSToastPositionCenter];
         return;
     }
@@ -100,8 +100,9 @@
     NSArray *list = [self.introduceView getAllSelectStrings];
     NSString *topic = @"";
     for (NSString *str in list) {
-        topic = [NSString stringWithFormat:@"%@ %@",topic,str];
+        topic = [NSString stringWithFormat:@"%@,%@",topic,str];
     }
+    topic = [topic substringFromIndex:1];
     [self.dataDic setObject:topic forKey:@"three"];
     self.myTableView.dataDic = self.dataDic;
 }

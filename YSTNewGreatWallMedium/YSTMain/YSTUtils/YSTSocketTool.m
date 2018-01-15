@@ -106,7 +106,7 @@
     NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
     jsonStr = [NSString stringWithFormat:@"%lu    %@",(unsigned long)jsonStr.length,jsonStr];
     NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
-    [self.clientSocket writeData:data withTimeout:- 1 tag:0];
+    [self.clientSocket writeData:data withTimeout:-1 tag:0];
     // 连接成功开启定时器
     if (!self.connectTimer) {
         [self addTimer];
@@ -114,7 +114,7 @@
     [self.connectTimer setFireDate:[NSDate distantPast]];
 
     // 连接后,可读取服务器端的数据
-    [self.clientSocket readDataWithTimeout:- 1 tag:0];
+    [self.clientSocket readDataWithTimeout:-1 tag:0];
     self.connected = YES;
 }
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {

@@ -113,6 +113,8 @@
     cell.titleLabel.text = model.groupName;
     cell.peopleLabel.text = [NSString stringWithFormat:@"参与人数:  %ld", (long)model.groupNumberByCurrent];
     cell.tagLabel.text = [NSString stringWithFormat:@"   %@   ",model.topic];
+    NSArray *topic = [model.topic componentsSeparatedByString:@","];
+    cell.dataList = topic;
     return cell;
 }
 
